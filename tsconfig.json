@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@a/*": ["src/api/*"],
+      "@c/*": ["src/components/*"]
+    },
+    "resolveJsonModule": true,
+    "types": ["node", "element-plus/global", "vite/client"],
+    "typeRoots": ["./node_modules/@types/", "./types", "node_modules"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/*.d.ts",
+    "vite.config.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
+}
