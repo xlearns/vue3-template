@@ -12,7 +12,8 @@
     "lint": "pnpm lint:eslint && pnpm lint:prettier&& pnpm lint:stylelint",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
-    "preview": "tsno run ./preview/serve.ts"
+    "preview": "tsno run ./preview/serve.ts",
+    "ci": "bash ./ci/ci.sh"
   },
   "dependencies": {
     "@sentry/tracing": "^7.64.0",
