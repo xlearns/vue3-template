@@ -6,6 +6,7 @@ import ElementPlus from "unplugin-element-plus/vite";
 import svgLoader from "vite-svg-loader";
 import configHtmlPlugin from "./html";
 import DefineOptions from "unplugin-vue-define-options/vite";
+import { setupMockPlugin } from "./mock";
 
 export function getPluginsList(viteEnv, isbuild) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -16,6 +17,9 @@ export function getPluginsList(viteEnv, isbuild) {
     DefineOptions(),
     svgLoader()
   ];
-  vitePlugins.push(configHtmlPlugin(viteEnv, isbuild));
+  vitePlugins.push(
+    configHtmlPlugin(viteEnv, isbuild),
+    setupMockPlugin(viteEnv, isbuild)
+  );
   return vitePlugins;
 }

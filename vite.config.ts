@@ -4,7 +4,7 @@ import { createProxy, wrapperEnv } from "./build/utils";
 import alias from "./build/vite/alias";
 import { getPluginsList } from "./build/vite/plugin/index";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
-import { dirname } from "path";
+import { jschunk } from "./build/chunks";
 
 function getViteSentry(envConfig) {
   return sentryVitePlugin({
@@ -49,34 +49,7 @@ export default ({ command, mode }: ConfigEnv) => {
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
         output: {
-          manualChunks: id => {
-            const folderURL = dirname(id);
-
-            function exist(folder, module) {
-              return folder.includes(module);
-            }
-
-            function isURLMerge(arr) {
-              return arr.find(module => exist(folderURL, module)) !== undefined;
-            }
-
-            if (
-              isURLMerge([
-                "/node_modules/element-plus",
-                "@element-plus/icons-vue"
-              ])
-            )
-              return "elementui";
-            if (isURLMerge(["/node_modules/vue", "node_modules/@vue"]))
-              return "vue";
-            if (isURLMerge(["/node_modules/axios"])) return "http";
-            if (isURLMerge(["/node_modules/echarts"])) return "echarts";
-            if (isURLMerge(["/node_modules/zrender"])) return "zrender";
-
-            if (isURLMerge(["src/router"])) return "router";
-            if (isURLMerge(["src/components"])) return "components";
-            if (isURLMerge(["src/utils", "src/views"])) return "views";
-          }
+          manualChunks: id => jschunk(id)
         }
       }
     }

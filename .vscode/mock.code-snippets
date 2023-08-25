@@ -1,0 +1,31 @@
+{
+  "mock快速生成模板": {
+    "prefix": "mock",
+    "body": [
+      "import { MockConfig } from 'vite-plugin-mock'",
+      "export default function (config: MockConfig) {",
+      "  return [",
+      "  {",
+      "    url: '/api/get',",
+      "    method: 'get',",
+      "    response: ({ query }) => {",
+      "      return {",
+      "        code: 200,",
+      "        data: 'ok'",
+      "      };",
+      "    }",
+      "  },",
+      "  {",
+      "    url: '/api/test',",
+      "    method: 'post',",
+      "    rawResponse: async (req, res) => {",
+      "      const reqbody = 'hello,world';",
+      "      res.end(reqbody);",
+      "    }",
+      "  }",
+      "  ];",
+      "}"
+    ],
+    "description": "mock"
+  }
+}

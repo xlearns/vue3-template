@@ -7,6 +7,7 @@ declare global {
     VITE_ROUTER_HISTORY: string;
     VITE_GLOB_APP_TITLE: string;
     VITE_PROXY: any[];
+    VITE_MOCK_ENABLE: boolean;
   }
 }
 
