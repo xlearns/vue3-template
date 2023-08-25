@@ -24,7 +24,7 @@ export default ({ command, mode }: ConfigEnv) => {
   const root = process.cwd();
   const env = loadEnv(mode, root);
   const viteEnv = wrapperEnv(env);
-  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv;
+  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_MOCK_ENABLE } = viteEnv;
   const isBuild = command === "build";
   return {
     plugins: [...getPluginsList(viteEnv, isBuild), getViteSentry(env)],
@@ -37,7 +37,7 @@ export default ({ command, mode }: ConfigEnv) => {
       https: false,
       host: "0.0.0.0",
       port: VITE_PORT,
-      proxy: createProxy(VITE_PROXY)
+      proxy: !VITE_MOCK_ENABLE && createProxy(VITE_PROXY)
     },
     optimizeDeps: {
       exclude: ["@zougt/vite-plugin-theme-preprocessor/dist/browser-utils"]
