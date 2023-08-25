@@ -12,3 +12,4 @@ dist
 *.rar
 *.tsno.mjs
 .env
+nginx.conf
