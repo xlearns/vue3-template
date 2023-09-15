@@ -1,6 +1,6 @@
-import { writeFile, readFileSync, unlinkSync, existsSync } from "fs";
-import { resolve } from "path";
-import dotenv from "dotenv";
+const { writeFile, readFileSync, unlinkSync, existsSync } = require("fs");
+const { resolve } = require("path");
+const dotenv = require("dotenv");
 const root = process.cwd();
 
 function createNginxConfig(config) {

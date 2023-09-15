@@ -14,6 +14,8 @@ RUN npm install pnpm -g && \
     pnpm install --frozen-lockfile && \
     pnpm build
 
+RUN npm run create:nginx
+
 RUN chmod 777 ./sentry.sh
 
 RUN ./sentry.sh

@@ -14,8 +14,8 @@
     "preinstall": "npx only-allow pnpm",
     "preview": "vite preview",
     "preview:live-server": "tsno run ./preview/serve.ts",
-    "ci": "pnpm run create:nginx && bash ./ci.sh",
-    "create:nginx": "tsno run ./build/nginx.ts"
+    "ci": "bash ./ci.sh",
+    "create:nginx": "node ./nginx"
   },
   "dependencies": {
     "@sentry/tracing": "^7.64.0",
