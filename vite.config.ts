@@ -52,6 +52,13 @@ export default ({ command, mode }: ConfigEnv) => {
           manualChunks: id => jschunk(id)
         }
       }
+    },
+    preview: {
+      https: false,
+      host: "0.0.0.0",
+      port: VITE_PORT,
+      cors: false,
+      proxy: !VITE_MOCK_ENABLE && createProxy(VITE_PROXY)
     }
   };
 };

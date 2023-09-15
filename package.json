@@ -12,7 +12,8 @@
     "lint": "pnpm lint:eslint && pnpm lint:prettier&& pnpm lint:stylelint",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
-    "preview": "tsno run ./preview/serve.ts",
+    "preview": "vite preview",
+    "preview:live-server": "tsno run ./preview/serve.ts",
     "ci": "pnpm run create:nginx && bash ./ci.sh",
     "create:nginx": "tsno run ./build/nginx.ts"
   },
