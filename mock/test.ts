@@ -17,6 +17,16 @@ export default function () {
         const reqbody = "hello,world";
         res.end(reqbody);
       }
+    },
+    {
+      url: "/api/v1/gitlab",
+      methods: "get",
+      response: () => {
+        return {
+          code: 200,
+          data: "haha xxx"
+        };
+      }
     }
   ];
 }

@@ -58,7 +58,7 @@ export default ({ command, mode }: ConfigEnv) => {
       host: "0.0.0.0",
       port: VITE_PORT,
       cors: false,
-      proxy: !VITE_MOCK_ENABLE && createProxy(VITE_PROXY)
+      proxy: createProxy(VITE_PROXY)
     }
   };
 };
