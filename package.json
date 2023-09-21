@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite",
-    "build": "rimraf dist && cross-env NODE_ENV=production vite build && bash ./sentry.sh",
+    "build": "rimraf dist && cross-env NODE_ENV=production vite build && sh ./sentry.sh",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,css,scss,postcss,less}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
@@ -14,7 +14,7 @@
     "preinstall": "npx only-allow pnpm",
     "preview": "vite preview",
     "preview:live-server": "tsno run ./preview/serve.ts",
-    "ci": "bash ./ci.sh",
+    "ci": "sh ./ci.sh",
     "create:nginx": "node ./nginx"
   },
   "dependencies": {

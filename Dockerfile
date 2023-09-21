@@ -1,4 +1,4 @@
-FROM node:20-alpine as build-stage
+FROM node:16-alpine as build-stage
 
 WORKDIR /app
 
@@ -12,9 +12,8 @@ ENV NODE_OPTIONS=--max-old-space-size=16384
 
 RUN npm install pnpm -g && \
     pnpm install --frozen-lockfile && \
-    pnpm build
-
-RUN npm run create:nginx
+    pnpm build && \
+    pnpm create:nginx
 
 RUN chmod 777 ./sentry.sh
 
